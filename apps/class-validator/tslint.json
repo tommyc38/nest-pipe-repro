@@ -1,0 +1,20 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "classValidatorMonorepo",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "class-validator-monorepo",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

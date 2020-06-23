@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@class-validator-monorepo/api-interfaces';
+import { ITranscodeRequest, TranscodeRequest } from '@class-validator-monorepo/api-interfaces';
 
 @Component({
   selector: 'class-validator-monorepo-root',
@@ -8,6 +8,6 @@ import { Message } from '@class-validator-monorepo/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
+  hello$ = this.http.post<TranscodeRequest>('/api/',{filePath: 'test'});
   constructor(private http: HttpClient) {}
 }

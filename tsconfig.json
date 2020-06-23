@@ -16,9 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@class-validator-monorepo/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
-      ]
+      "@class-validator-monorepo/api-interfaces": [ "libs/api-interfaces/src/index.ts" ],
+      "@class-validator-monorepo/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@class-validator-monorepo/nest-shared": [ "libs/nest-shared/src/index.ts" ],
+      "@class-validator-monorepo/nest-database": [ "libs/nest-database/src/lib/index.ts" ]
     }
   },
   "exclude": ["node_modules", "tmp"]

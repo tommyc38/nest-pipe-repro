@@ -1,15 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 
-import { Message } from '@class-validator-monorepo/api-interfaces';
+import { TranscodeRequest } from '@class-validator-monorepo/api-interfaces';
 
 import { AppService } from './app.service';
+import { FileExistPipe } from './app.validator.service';
+// @ts-ignore
+import { DatabaseService } from '@class-validator-monorepo/nest-database';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService, private db: DatabaseService) {}
 
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  @Get()
+  get(){
+    return this.db.checkFileExists('true');
+  }
+
+  @Post()
+  async getData(@Body(ValidationPipe) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
+  // async getData(@Body(FileExistPipe('input')) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
+    return await this.appService.getData(transcodeRequest.filePath);
   }
 }

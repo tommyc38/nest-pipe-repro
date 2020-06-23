@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranscodeRequest } from '@class-validator-monorepo/api-interfaces';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'class-validator-monorepo-trans',
@@ -9,10 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TransComponent implements OnInit {
 
-  headers = new HttpHeaders({
-    'Access-Control-Allow-Origin':'*',
-  })
-  hello$ = this.http.post<TranscodeRequest>('http://localhost:3333/api/',{filePath: 'test'});
+  hello$ = this.http.post<TranscodeRequest>('http://localhost:3333/api/',{data:{filePath: 'tes'}}).toPromise().catch(err => err.error);
   constructor(private http: HttpClient) {}
 
   ngOnInit() {

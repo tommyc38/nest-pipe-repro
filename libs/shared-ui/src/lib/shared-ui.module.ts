@@ -5,5 +5,6 @@ import { TransComponent } from './trans/trans.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [TransComponent],
+  exports: [TransComponent]
 })
 export class SharedUiModule {}

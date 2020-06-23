@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 
-import { TranscodeRequest } from '@class-validator-monorepo/api-interfaces';
+import { Transcode, TranscodeRequest } from '@class-validator-monorepo/api-interfaces';
 
 import { AppService } from './app.service';
 import { FileExistPipe } from './app.validator.service';
@@ -17,8 +17,9 @@ export class AppController {
   }
 
   @Post()
+    async getData(@Body(ValidationPipe) transcodeRequest: Transcode): Promise<TranscodeRequest> {
   // async getData(@Body(ValidationPipe) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
-  async getData(@Body(FileExistPipe('input')) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
-    return await this.appService.getData(transcodeRequest.filePath);
+  // async getData(@Body(FileExistPipe('input')) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
+    return await this.appService.getData(transcodeRequest.data.filePath);
   }
 }

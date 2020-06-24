@@ -1,0 +1,183 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "TransComponent",
+            "id": "component-TransComponent-4c3f4d8400db1d8ee1b3a47fc269f669",
+            "file": "libs/shared-ui/src/lib/trans/trans.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "class-validator-monorepo-trans",
+            "styleUrls": [
+                "./trans.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./trans.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "hello$",
+                    "defaultValue": "this.http.post<TranscodeRequest>('http://localhost:3333/api/',{data:{filePath: 'tes'}}).toPromise().catch(err => err.error)",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { TranscodeRequest } from '@class-validator-monorepo/api-interfaces';\nimport { HttpClient } from '@angular/common/http';\n\n@Component({\n  selector: 'class-validator-monorepo-trans',\n  templateUrl: './trans.component.html',\n  styleUrls: ['./trans.component.scss']\n})\nexport class TransComponent implements OnInit {\n\n  hello$ = this.http.post<TranscodeRequest>('http://localhost:3333/api/',{data:{filePath: 'tes'}}).toPromise().catch(err => err.error);\n  constructor(private http: HttpClient) {}\n\n  ngOnInit() {\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./trans.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient"
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<pre>Transcode Response: {{ hello$ | async | json }}</pre>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "SharedUiModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TransComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TransComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    imports: [HttpClientModule],\n  },\n  component: TransComponent,\n  props: {\n  }\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "libs/shared-ui/src/lib/trans/trans.component.storie.ts": [
+                {
+                    "name": "primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    imports: [HttpClientModule],\n  },\n  component: TransComponent,\n  props: {\n  }\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared-ui/src/lib/trans/trans.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TransComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            }
+        ]
+    }
+}

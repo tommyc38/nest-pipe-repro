@@ -25,7 +25,9 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "compo-shared-doc": "compodoc -p libs/shared-ui/tsconfig.json -e json -d .",
+    "storybook": "npm run compo-shared-doc && nx run shared-ui:storybook"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +54,7 @@
     "@angular/cli": "9.1.0",
     "@angular/compiler-cli": "^9.1.0",
     "@angular/language-service": "^9.1.0",
+    "@compodoc/compodoc": "^1.1.11",
     "@nestjs/schematics": "^6.7.0",
     "@nestjs/testing": "^6.8.3",
     "@nrwl/cypress": "9.4.5",
@@ -60,9 +63,19 @@
     "@nrwl/node": "9.4.5",
     "@nrwl/storybook": "^9.4.5",
     "@nrwl/workspace": "9.4.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "5.3.9",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/angular": "5.3.9",
+    "@storybook/source-loader": "^5.3.19",
     "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",
+    "autoprefixer": "^8.6.5",
     "codelyzer": "~5.0.1",
+    "compodoc": "0.0.41",
     "cypress": "^4.1.0",
     "dotenv": "6.2.0",
     "eslint": "6.8.0",
@@ -72,8 +85,6 @@
     "ts-jest": "25.2.1",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~3.8.3",
-    "@storybook/addon-knobs": "5.3.9",
-    "@storybook/angular": "5.3.9"
+    "typescript": "~3.8.3"
   }
 }

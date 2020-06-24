@@ -6,6 +6,17 @@ module.exports = async ({ config, mode }) => {
 
   // Make whatever fine-grained changes you need
 
+  // config.module.rules.push({
+  //   test: /\.stories\.(mdx?)$/,
+  //   loaders: [
+  //     {
+  //       loader: require.resolve('@storybook/source-loader'),
+  //       options: { parser: 'typescript' },
+  //     },
+  //   ],
+  //   enforce: 'pre',
+  // });
+
   // Return the altered config
   return config;
 };

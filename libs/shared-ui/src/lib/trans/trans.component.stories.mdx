@@ -1,0 +1,32 @@
+import { SharedUiModule } from '@class-validator-monorepo/shared-ui';
+import { Story, Meta, Preview, Props } from '@storybook/addon-docs/blocks';
+import { moduleMetadata } from '@storybook/angular';
+
+<Meta title="Class Validator"
+  decorators={[ moduleMetadata({
+      imports: [
+      SharedUiModule
+      ]
+})]}/>
+
+# Class Validator
+
+`<cor-avatar>` - An image or icon to represent a user or group
+
+
+
+##### Example
+<Preview>
+<Story name="Types">
+  {{
+    template:
+    `<div style="display: flex; align-items: center; justify-content: space-between; width: 250px">
+     <class-validator-monorepo-trans></class-validator-monorepo-trans>
+    </div>`,
+    props: {
+      onClick: () => {},
+    },
+  }}
+</Story>
+</Preview>
+

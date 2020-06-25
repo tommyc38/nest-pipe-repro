@@ -18,8 +18,6 @@ export class AppController {
 
   @Post()
     async getData(@Body(ValidationPipe) transcodeRequest: Transcode): Promise<TranscodeRequest> {
-  // async getData(@Body(ValidationPipe) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
-  // async getData(@Body(FileExistPipe('input')) transcodeRequest: TranscodeRequest): Promise<TranscodeRequest> {
     return await this.appService.getData(transcodeRequest.data.filePath);
   }
 }

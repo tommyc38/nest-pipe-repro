@@ -7,7 +7,7 @@
     "components": [
         {
             "name": "TransComponent",
-            "id": "component-TransComponent-4c3f4d8400db1d8ee1b3a47fc269f669",
+            "id": "component-TransComponent-e4b4a3beb7d6b19a388b5f3964903e5c",
             "file": "libs/shared-ui/src/lib/trans/trans.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -23,16 +23,47 @@
                 "./trans.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "detail",
+                    "defaultValue": "{type: 'video', outputFormat: 'mp4'}",
+                    "line": 25,
+                    "type": "ITranscodeDetail"
+                },
+                {
+                    "name": "status",
+                    "line": 21
+                },
+                {
+                    "name": "type",
+                    "line": 28,
+                    "type": ""
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "_status",
+                    "defaultValue": "'waiting'",
+                    "type": "Status",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "_type",
+                    "type": "MediaType",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
                     "name": "hello$",
-                    "defaultValue": "this.http.post<TranscodeRequest>('http://localhost:3333/api/',{data:{filePath: 'tes'}}).toPromise().catch(err => err.error)",
+                    "defaultValue": "this.http.post<TranscodeRequest>('http://localhost:3333/api/', { data: { filePath: 'tes' } }).toPromise().catch(err => err.error)",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 17
                 }
             ],
             "methodsClass": [
@@ -42,7 +73,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15
+                    "line": 35
                 }
             ],
             "hostBindings": [],
@@ -50,7 +81,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { TranscodeRequest } from '@class-validator-monorepo/api-interfaces';\nimport { HttpClient } from '@angular/common/http';\n\n@Component({\n  selector: 'class-validator-monorepo-trans',\n  templateUrl: './trans.component.html',\n  styleUrls: ['./trans.component.scss']\n})\nexport class TransComponent implements OnInit {\n\n  hello$ = this.http.post<TranscodeRequest>('http://localhost:3333/api/',{data:{filePath: 'tes'}}).toPromise().catch(err => err.error);\n  constructor(private http: HttpClient) {}\n\n  ngOnInit() {\n  }\n}\n",
+            "sourceCode": "import { Component, ElementRef, Input, OnInit } from '@angular/core';\nimport {\n  ITranscodeDetail,\n  MediaType,\n  Status,\n  TranscodeRequest\n} from '@class-validator-monorepo/api-interfaces';\nimport { HttpClient } from '@angular/common/http';\n\n@Component({\n  selector: 'class-validator-monorepo-trans',\n  templateUrl: './trans.component.html',\n  styleUrls: ['./trans.component.scss']\n})\nexport class TransComponent implements OnInit {\n\n  hello$ = this.http.post<TranscodeRequest>('http://localhost:3333/api/', { data: { filePath: 'tes' } }).toPromise().catch(err => err.error);\n\n  _status: Status = 'waiting';\n\n  @Input() status(status: Status) {\n    this._status = status;\n  };\n\n  @Input() detail: ITranscodeDetail = {type: 'video', outputFormat: 'mp4'};\n\n  _type: MediaType;\n  @Input() set type(mediaType: MediaType) {\n    this._type = mediaType;\n  }\n\n  constructor(private http: HttpClient) {\n  }\n\n  ngOnInit() {\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -68,7 +99,7 @@
                         "type": "HttpClient"
                     }
                 ],
-                "line": 12,
+                "line": 30,
                 "jsdoctags": [
                     {
                         "name": "http",
@@ -82,6 +113,32 @@
             "implements": [
                 "OnInit"
             ],
+            "accessors": {
+                "type": {
+                    "name": "type",
+                    "setSignature": {
+                        "name": "type",
+                        "type": "void",
+                        "args": [
+                            {
+                                "name": "mediaType",
+                                "type": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 28,
+                        "jsdoctags": [
+                            {
+                                "name": "mediaType",
+                                "type": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
             "templateData": "<pre>Transcode Response: {{ hello$ | async | json }}</pre>\n"
         }
     ],
@@ -124,58 +181,19 @@
             ]
         }
     ],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
-                "type": "",
-                "defaultValue": "() => ({\n  moduleMetadata: {\n    imports: [HttpClientModule],\n  },\n  component: TransComponent,\n  props: {\n  }\n})"
-            }
-        ],
-        "functions": [],
-        "typealiases": [],
-        "enumerations": [],
-        "groupedVariables": {
-            "libs/shared-ui/src/lib/trans/trans.component.storie.ts": [
-                {
-                    "name": "primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
-                    "type": "",
-                    "defaultValue": "() => ({\n  moduleMetadata: {\n    imports: [HttpClientModule],\n  },\n  component: TransComponent,\n  props: {\n  }\n})"
-                }
-            ]
-        },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {}
-    },
+    "miscellaneous": [],
     "routes": [],
     "coverage": {
         "count": 0,
         "status": "low",
         "files": [
             {
-                "filePath": "libs/shared-ui/src/lib/trans/trans.component.storie.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "libs/shared-ui/src/lib/trans/trans.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "TransComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/9",
                 "status": "low"
             }
         ]

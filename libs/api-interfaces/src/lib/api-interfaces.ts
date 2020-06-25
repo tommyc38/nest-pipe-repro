@@ -1,6 +1,6 @@
 import { Validate, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { FileExists } from '../../../nest-shared/src/lib/validators/validator.service';
+// import { FileExists } from '../../../nest-shared/src/lib/validators/validator.service';
 
 export interface ITranscodeRequest {
 
@@ -9,7 +9,7 @@ export interface ITranscodeRequest {
 
 export class TranscodeRequest implements ITranscodeRequest {
 
-  @Validate(FileExists)
+  // @Validate(FileExists)
   filePath: string = 'bad';
 }
 
